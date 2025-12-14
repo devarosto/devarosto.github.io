@@ -74,10 +74,23 @@ section.relative > img {
     height: 60vh; /* desktop/tablet default */
 }
 
-/* Product card images: sensible default height */
-.product-card img {
-    height: 220px;
-}
+        /* Product card images: keep a consistent aspect ratio and cover */
+    .product-card {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-card .p-6 {
+        margin-top: auto;
+    }
+
+    .product-card img {
+        aspect-ratio: 4 / 3;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        display: block;
+    }
 
 /* Cart dropdown on small screens should be nearly full-width */
 #cart-dropdown {
@@ -91,9 +104,9 @@ section.relative > img {
         height: 40vh;
     }
 
-    /* product images slightly smaller for narrow widths */
+    /* product images: responsive aspect ratio maintained on narrow widths */
     .product-card img {
-        height: 180px;
+        aspect-ratio: 4 / 3;
     }
 
     /* stack nav items and create space for touch */
@@ -127,13 +140,13 @@ section.relative > img {
 /* Medium phones / larger small screens (e.g., iPhone 8 Plus, iPhone 11/12 small sizes) */
 @media (min-width: 381px) and (max-width: 414px) {
     section.relative > img { height: 48vh; }
-    .product-card img { height: 200px; }
+    .product-card img { aspect-ratio: 4 / 3; }
 }
 
 /* iPhone SE / very small devices */
 @media (max-width: 360px) {
     section.relative > img { height: 36vh; }
-    .product-card img { height: 160px; }
+    .product-card img { aspect-ratio: 4 / 3; }
     .p-6 { padding: 12px; }
 }
 
