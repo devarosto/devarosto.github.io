@@ -601,6 +601,11 @@ This Cloud Ceiling LED turns your room into a whole vibe — cozy nights, clean 
             // Initialize cart
             let cart = [];
             let isCartOpen = false;
+
+            // Ensure images are lazy-loaded for better performance on mobile
+            document.querySelectorAll('img').forEach(img => {
+                if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
+            });
             
             // DOM Elements
             const cartBtn = document.getElementById('cart-btn');
